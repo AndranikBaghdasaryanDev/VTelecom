@@ -109,5 +109,54 @@
       "price": "$185",
       "date": "5/12/2016"
     }
+  ],
+  "emailStatistics": [
+    {
+      "name": "2011",
+      "seriesA": 0,
+      "seriesB": 0,
+      "seriesC": 0
+    },
+    {
+      "name": "2012",
+      "seriesA": 20,
+      "seriesB": 50,
+      "seriesC": 150
+    },
+    {
+      "name": "2013",
+      "seriesA": 130,
+      "seriesB": 80,
+      "seriesC": 100
+    },
+    {
+      "name": "2014",
+      "seriesA": 50,
+      "seriesB": 180,
+      "seriesC": 40
+    },
+    {
+      "name": "2015",
+      "seriesA": 360,
+      "seriesB": 60,
+      "seriesC": 80
+    },
+    {
+      "name": "2016",
+      "seriesA": 100,
+      "seriesB": 240,
+      "seriesC": 80
+    },
+    {
+      "name": "2017",
+      "seriesA": 30,
+      "seriesB": 30,
+      "seriesC": 30
+    }
+  ],
+  "emailStatisticsPrices":[
+    {"name":"MarketPlace","price":"$ 89425"},
+    {"name":"Total Income","price":"$ 56210"},
+    {"name":"Last Month","price":"$ 8974"}
   ]
 }
