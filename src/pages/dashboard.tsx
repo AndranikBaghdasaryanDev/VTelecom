@@ -9,7 +9,7 @@ import type { LatestOrdersProps } from '../types/dashboard/latestOrders';
 import type { CardProps } from '../types/dashboard/card';
 
 
-export const Dashboard = () => {
+export const Dashboard = ({theme}:{theme:string}) => {
     const [cards, setCards] = useState<CardProps[] | []>([]);
     const [latestOrders, setLatestOrders] = useState<LatestOrdersProps[] | []>([]);
 
@@ -31,21 +31,21 @@ export const Dashboard = () => {
 
     return (
         // ԱՅՍՏԵՂ Է ՓՈՓՈԽՈՒԹՅՈՒՆԸ. dark:bg-[#222736]
-        <div className="w-full min-h-screen pt-[70px] bg-[#f8f9fa] dark:bg-[#222736] pb-10 transition-colors duration-300">
+        <div className={`w-full min-h-screen pt-[70px] ${theme == "dark" ? "bg-[#222736]": "bg-[#f8f9fa]"}  pb-10 transition-colors duration-300`}>
             
-            <SubHeader />
+            <SubHeader theme={theme} />
 
             <div className="p-4 md:p-6 lg:p-8 max-w-[1600px] mx-auto space-y-6">
                 <StatsGrid cards={cards} />
 
                 <div className="w-full">
-                    <GraphicDiagram />
+                    <GraphicDiagram theme={theme} />
                 </div>
 
-                <LatestOrdersTable orders={latestOrders} />
+                <LatestOrdersTable  orders={latestOrders} theme={theme as 'light' | 'dark'} />
             </div>
 
-            <Footer />
+            <Footer theme={theme} />
         </div>
     );
 };

@@ -21,10 +21,10 @@ export default function App() {
 
   return (
     // Ամենագլխավոր div-ին տալիս ենք 'dark' class-ը, եթե theme === 'dark'
-    <div className={theme === "dark" ? "dark" : ""}>
-      <div className="bg-[#f8f9fa] dark:bg-[#222736] min-h-screen text-[#495057] dark:text-[#adb5bd]">
+    <div>
+      <div className=" min-h-screen text-[#495057]">
         <Header theme={theme} onThemeChange={toggleTheme} />
-        <Dashboard />
+        <Dashboard theme={theme} />
       </div>
     </div>
   );

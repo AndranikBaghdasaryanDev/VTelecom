@@ -1,7 +1,7 @@
 import { ChevronRight, LayoutDashboard, Mail, Briefcase, FileText, List, PieChart, Box } from 'lucide-react';
 import { MiniChart } from './MiniChart';
 
-export const SubHeader = () => {
+export const SubHeader = ({ theme }: { theme: string }) => {
     return (
         <div className="sticky top-[70px] z-30 shadow-sm dark:shadow-md transition-all duration-300">
             {/* Top Part */}
@@ -23,10 +23,17 @@ export const SubHeader = () => {
             </div>
 
             {/* Bottom Menu */}
-            <div className="bg-gray-50 dark:bg-[#32394e] px-4 md:px-8 py-3 flex items-center gap-8 overflow-x-auto no-scrollbar border-b border-gray-200 dark:border-white/5 transition-colors duration-300">
+            <div className={`px-4 md:px-8 py-3 flex items-center gap-8 overflow-x-auto no-scrollbar border-b transition-colors duration-300 ${theme === "dark" ? "bg-[#32394e] border-white/5" : "bg-gray-50 border-gray-200"
+                }`}>
                 <LayoutDashboard size={20} className="text-[#6c5fb1] shrink-0 cursor-pointer" />
+
                 {[Mail, Briefcase, FileText, List, PieChart, Box].map((Icon, id) => (
-                    <Icon key={id} size={20} className="text-gray-400 hover:text-gray-800 dark:hover:text-white cursor-pointer transition shrink-0" />
+                    <Icon
+                        key={id}
+                        size={20}
+                        className={`cursor-pointer transition shrink-0 text-gray-400 ${theme === "dark" ? "hover:text-white" : "hover:text-gray-800"
+                            }`}
+                    />
                 ))}
             </div>
         </div>

@@ -4,8 +4,7 @@ import { Axios } from '../../api/axios';
 import type { DiagramData } from '../../types/dashboard/diagram';
 import type { EmailPrices } from '../../types/dashboard/emailPrices';
 
-
-export const GraphicDiagram = () => {
+export const GraphicDiagram = ({ theme }: { theme: string }) => {
   const [data, setData] = useState<DiagramData[]>([]);
   const [prices, setPrices] = useState<EmailPrices[]>([]);
 
@@ -15,17 +14,32 @@ export const GraphicDiagram = () => {
   }, []);
 
   return (
-    // ԱՅՍՏԵՂ Է ՓՈՓՈԽՈՒԹՅՈՒՆԸ. bg-white dark:bg-[#2a3142]
-    <div className="bg-white dark:bg-[#2a3142] rounded-lg shadow-lg border border-gray-200 dark:border-white/5 overflow-hidden transition-colors duration-300">
-      <div className="p-6 border-b border-gray-200 dark:border-white/5">
-        <h3 className="text-gray-800 dark:text-white text-base font-bold uppercase">Email Sent</h3>
+    <div className={`rounded-lg shadow-lg border overflow-hidden transition-colors duration-300 ${
+        theme === "dark" ? "bg-[#2a3142] border-white/5" : "bg-white border-gray-200"
+    }`}>
+      <div className={`p-6 border-b ${
+          theme === "dark" ? "border-white/5" : "border-gray-200"
+      }`}>
+        <h3 className={`text-base font-bold uppercase ${
+            theme === "dark" ? "text-white" : "text-gray-800"
+        }`}>
+            Email Sent
+        </h3>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center py-6">
         {prices.map((item, idx) => (
             <div key={idx}>
-                <p className="text-gray-800 dark:text-white text-xl font-bold mb-1">{item.price}</p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">{item.name}</p>
+                <p className={`text-xl font-bold mb-1 ${
+                    theme === "dark" ? "text-white" : "text-gray-800"
+                }`}>
+                    {item.price}
+                </p>
+                <p className={`text-xs uppercase tracking-wide ${
+                    theme === "dark" ? "text-gray-400" : "text-gray-500"
+                }`}>
+                    {item.name}
+                </p>
             </div>
         ))}
       </div>
@@ -46,7 +60,14 @@ export const GraphicDiagram = () => {
             <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.1} vertical={false} />
             <XAxis dataKey="name" stroke="#848fa5" tick={{fontSize: 12}} axisLine={false} tickLine={false} dy={10} />
             <YAxis stroke="#848fa5" tick={{fontSize: 12}} axisLine={false} tickLine={false} />
-            <Tooltip contentStyle={{ backgroundColor: '#2a3142', border: 'none', color: '#fff', borderRadius: '8px' }} />
+            <Tooltip 
+                contentStyle={{ 
+                    backgroundColor: theme === "dark" ? '#2a3142' : '#ffffff', 
+                    border: theme === "dark" ? 'none' : '1px solid #e5e7eb', 
+                    color: theme === "dark" ? '#fff' : '#1f2937', 
+                    borderRadius: '8px' 
+                }} 
+            />
             
             <Area type="monotone" dataKey="seriesB" stroke="none" fill="url(#colorB)" fillOpacity={1} />
             <Area type="monotone" dataKey="seriesA" stroke="none" fill="url(#colorA)" fillOpacity={1} />

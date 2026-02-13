@@ -7,7 +7,6 @@ import type { HeaderProps } from '../types/header/headerProps';
 import type { LanguageProps } from '../types/dashboard/language';
 import { SettingsSidebar } from './header/SettingsSideBar';
 
-
 export const Header = ({ theme, onThemeChange }: HeaderProps) => {
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,20 +20,26 @@ export const Header = ({ theme, onThemeChange }: HeaderProps) => {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50 bg-[#6c5fb1] text-white shadow-lg h-[70px] transition-colors">
+            {/* Header-ի հիմնական ֆոնը */}
+            <header className={`fixed top-0 left-0 w-full z-50 shadow-lg h-[70px] transition-colors duration-300 ${theme === "dark" ? "bg-[#6c5fb1] text-white" : "bg-white text-gray-800 border-b border-gray-200"}`}>
                 <div className="flex items-center justify-between px-4 md:px-8 h-full">
                     
                     {/* Logo */}
                     <div className="flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0">
-                        <div className="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition">
-                            <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-md flex items-center justify-center shadow-sm">
-                                <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-[#6c5fb1] rounded-full"></div>
+                        {/* Լոգոյի ֆոնը (Light mode-ում թույլ մանուշակագույն է դառնում, որ երևա սպիտակի վրա) */}
+                        <div className={`p-2 rounded-lg transition ${theme === "dark" ? "bg-white/20 group-hover:bg-white/30" : "bg-[#6c5fb1]/10 group-hover:bg-[#6c5fb1]/20"}`}>
+                            {/* Լոգոյի մեջտեղի քառակուսին ու կետը */}
+                            <div className={`w-5 h-5 md:w-6 md:h-6 rounded-md flex items-center justify-center shadow-sm ${theme === "dark" ? "bg-white" : "bg-[#6c5fb1]"}`}>
+                                <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${theme === "dark" ? "bg-[#6c5fb1]" : "bg-white"}`}></div>
                             </div>
                         </div>
-                        <span className="text-xl md:text-2xl font-bold tracking-tight hidden sm:block">Lexa</span>
+                        {/* Տեքստը */}
+                        <span className={`text-xl md:text-2xl font-bold tracking-tight hidden sm:block ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+                            Lexa
+                        </span>
                     </div>
 
-                    {/* Desktop Nav */}
+                    {/* Desktop Nav - theme-ը տալիս ենք որպես պրոպ */}
                     <DesktopNav 
                         languages={languages}
                         selectedLang={selectedLang}
@@ -42,18 +47,30 @@ export const Header = ({ theme, onThemeChange }: HeaderProps) => {
                         isLangOpen={isLangOpen}
                         setIsLangOpen={setIsLangOpen}
                         onSettingsClick={() => setIsSettingsOpen(true)}
+                        theme={theme} 
                     />
 
                     {/* Mobile Buttons */}
                     <div className="md:hidden flex items-center gap-4">
-                        <Settings size={22} className="cursor-pointer" onClick={() => setIsSettingsOpen(true)} />
-                        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <Settings 
+                            size={22} 
+                            className={`cursor-pointer ${theme === "dark" ? "text-white" : "text-gray-600"}`} 
+                            onClick={() => setIsSettingsOpen(true)} 
+                        />
+                        <button 
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className={theme === "dark" ? "text-white" : "text-gray-600"}
+                        >
                             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
                         </button>
                     </div>
                 </div>
 
-                <MobileDropdown isOpen={isMobileMenuOpen} />
+                {/* Mobile Dropdown - theme-ը տալիս ենք որպես պրոպ */}
+                <MobileDropdown 
+                    isOpen={isMobileMenuOpen} 
+                    theme={theme}
+                />
             </header>
 
             <SettingsSidebar 

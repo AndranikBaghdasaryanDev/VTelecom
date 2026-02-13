@@ -7,4 +7,5 @@ export interface DesktopNavProps {
     isLangOpen: boolean;
     setIsLangOpen: (v: boolean) => void;
     onSettingsClick: () => void;
+    theme: 'light' | 'dark';
 }
