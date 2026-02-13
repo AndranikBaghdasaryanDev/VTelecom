@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
+
 import { Package, Layers, Tag, Briefcase } from 'lucide-react';
-import { Card } from './Card';
 import type { StatsGridProps } from '../../types/dashboard/statsGrid';
+import { Card } from './Card';
 
 
 export const StatsGrid = ({ cards }: StatsGridProps) => {
-    
     const getIcon = (type: string) => {
         switch (type) {
             case 'orders': return <Package />;

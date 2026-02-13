@@ -3,15 +3,15 @@ import { MiniChart } from './MiniChart';
 
 export const SubHeader = () => {
     return (
-        <div className="sticky top-[70px] z-30 shadow-md">
-            {/* Upper Sub-header: Title & Breadcrumbs */}
-            <div className="bg-[#2a3142] px-4 md:px-8 py-5 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/5">
+        <div className="sticky top-[70px] z-30 shadow-sm dark:shadow-md transition-all duration-300">
+            {/* Top Part */}
+            <div className="bg-white dark:bg-[#2a3142] px-4 md:px-8 py-5 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 dark:border-white/5 transition-colors duration-300">
                 <div>
-                    <h2 className="text-lg font-bold text-white uppercase tracking-wide">Dashboard</h2>
-                    <div className="flex items-center gap-2 text-xs text-gray-400 mt-1">
-                        <span className="hover:text-white cursor-pointer transition">Lexa</span>
+                    <h2 className="text-lg font-bold text-gray-800 dark:text-white uppercase tracking-wide">Dashboard</h2>
+                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <span className="hover:text-[#6c5fb1] dark:hover:text-white cursor-pointer transition">Lexa</span>
                         <ChevronRight size={12} />
-                        <span className="text-gray-300 font-medium">Dashboard</span>
+                        <span className="text-gray-400 dark:text-gray-300 font-medium">Dashboard</span>
                     </div>
                 </div>
 
@@ -22,14 +22,13 @@ export const SubHeader = () => {
                 </div>
             </div>
 
-            {/* Lower Sub-header: Icon Menu */}
-            <div className="bg-[#32394e] px-4 md:px-8 py-3 flex items-center gap-8 overflow-x-auto no-scrollbar">
-                <LayoutDashboard size={20} className="text-[#7a6fbe] shrink-0 cursor-pointer" />
+            {/* Bottom Menu */}
+            <div className="bg-gray-50 dark:bg-[#32394e] px-4 md:px-8 py-3 flex items-center gap-8 overflow-x-auto no-scrollbar border-b border-gray-200 dark:border-white/5 transition-colors duration-300">
+                <LayoutDashboard size={20} className="text-[#6c5fb1] shrink-0 cursor-pointer" />
                 {[Mail, Briefcase, FileText, List, PieChart, Box].map((Icon, id) => (
-                    <Icon key={id} size={20} className="text-gray-400 hover:text-white cursor-pointer transition shrink-0" />
+                    <Icon key={id} size={20} className="text-gray-400 hover:text-gray-800 dark:hover:text-white cursor-pointer transition shrink-0" />
                 ))}
             </div>
         </div>
     );
 };
-

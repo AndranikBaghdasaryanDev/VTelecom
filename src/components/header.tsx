@@ -1,44 +1,30 @@
 import { useEffect, useState } from 'react';
 import { Settings, Menu, X } from 'lucide-react';
 import { Axios } from '../api/axios';
-import type { LanguageProps } from '../types/dashboard/language';
-
-// Imported Sub-components
 import { DesktopNav } from './header/DesktopNav';
 import { MobileDropdown } from './header/MobileDropdown';
+import type { HeaderProps } from '../types/header/headerProps';
+import type { LanguageProps } from '../types/dashboard/language';
 import { SettingsSidebar } from './header/SettingsSideBar';
 
 
-export const Header = () => {
-    // --- States ---
+export const Header = ({ theme, onThemeChange }: HeaderProps) => {
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-
-    const [selectedLang, setSelectedLang] = useState({
-        name: 'Russian',
-        flag: 'https://flagcdn.com/w20/ru.png'
-    });
     const [languages, setLanguages] = useState<LanguageProps[] | []>([]);
+    const [selectedLang, setSelectedLang] = useState({ name: 'Russian', flag: 'https://flagcdn.com/w20/ru.png' });
 
     useEffect(() => {
-        Axios.get("/languages")
-            .then((res) => setLanguages(res.data))
-            .catch((err) => console.log(err));
+        Axios.get("/languages").then((res) => setLanguages(res.data)).catch(console.error);
     }, []);
-
-    const handleThemeChange = (mode: 'light' | 'dark') => {
-        setTheme(mode);
-        console.log(`Switched to ${mode} mode`);
-    };
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50 bg-[#6c5fb1] text-white shadow-lg h-[70px]">
+            <header className="fixed top-0 left-0 w-full z-50 bg-[#6c5fb1] text-white shadow-lg h-[70px] transition-colors">
                 <div className="flex items-center justify-between px-4 md:px-8 h-full">
-
-                    {/* --- Logo Section --- */}
+                    
+                    {/* Logo */}
                     <div className="flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0">
                         <div className="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition">
                             <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-md flex items-center justify-center shadow-sm">
@@ -48,7 +34,7 @@ export const Header = () => {
                         <span className="text-xl md:text-2xl font-bold tracking-tight hidden sm:block">Lexa</span>
                     </div>
 
-                    {/* --- Desktop Navigation --- */}
+                    {/* Desktop Nav */}
                     <DesktopNav 
                         languages={languages}
                         selectedLang={selectedLang}
@@ -58,29 +44,23 @@ export const Header = () => {
                         onSettingsClick={() => setIsSettingsOpen(true)}
                     />
 
-                    {/* --- Mobile Buttons (Right side) --- */}
+                    {/* Mobile Buttons */}
                     <div className="md:hidden flex items-center gap-4">
-                        <Settings 
-                            size={22} 
-                            className="cursor-pointer animate-pulse" 
-                            onClick={() => setIsSettingsOpen(true)} 
-                        />
+                        <Settings size={22} className="cursor-pointer" onClick={() => setIsSettingsOpen(true)} />
                         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
                         </button>
                     </div>
                 </div>
 
-                {/* --- Mobile Dropdown --- */}
                 <MobileDropdown isOpen={isMobileMenuOpen} />
             </header>
 
-            {/* --- Settings Sidebar --- */}
-            <SettingsSidebar
+            <SettingsSidebar 
                 isOpen={isSettingsOpen} 
                 onClose={() => setIsSettingsOpen(false)} 
                 theme={theme}
-                onThemeChange={handleThemeChange}
+                onThemeChange={onThemeChange}
             />
         </>
     );
