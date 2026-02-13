@@ -30,7 +30,6 @@ export const Dashboard = ({theme}:{theme:string}) => {
     }, []);
 
     return (
-        // ԱՅՍՏԵՂ Է ՓՈՓՈԽՈՒԹՅՈՒՆԸ. dark:bg-[#222736]
         <div className={`w-full min-h-screen pt-[70px] ${theme == "dark" ? "bg-[#222736]": "bg-[#f8f9fa]"}  pb-10 transition-colors duration-300`}>
             
             <SubHeader theme={theme} />

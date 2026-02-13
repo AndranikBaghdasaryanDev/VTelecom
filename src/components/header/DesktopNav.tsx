@@ -1,7 +1,7 @@
 import { Search, Maximize, Bell, Settings, ChevronDown } from 'lucide-react';
 import { toggleFullScreen } from '../../utils/toggleFullScreen';
 
-// Փոխիր LanguageProps-ի ուղին ըստ քո ֆայլային համակարգի
+
 import type { DesktopNavProps } from '../../types/header/desktopNav';
 
 export const DesktopNav = ({ 

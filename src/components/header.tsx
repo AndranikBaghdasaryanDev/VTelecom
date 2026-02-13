@@ -20,15 +20,13 @@ export const Header = ({ theme, onThemeChange }: HeaderProps) => {
 
     return (
         <>
-            {/* Header-ի հիմնական ֆոնը */}
+            {/* Header*/}
             <header className={`fixed top-0 left-0 w-full z-50 shadow-lg h-[70px] transition-colors duration-300 ${theme === "dark" ? "bg-[#6c5fb1] text-white" : "bg-white text-gray-800 border-b border-gray-200"}`}>
                 <div className="flex items-center justify-between px-4 md:px-8 h-full">
                     
                     {/* Logo */}
                     <div className="flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0">
-                        {/* Լոգոյի ֆոնը (Light mode-ում թույլ մանուշակագույն է դառնում, որ երևա սպիտակի վրա) */}
                         <div className={`p-2 rounded-lg transition ${theme === "dark" ? "bg-white/20 group-hover:bg-white/30" : "bg-[#6c5fb1]/10 group-hover:bg-[#6c5fb1]/20"}`}>
-                            {/* Լոգոյի մեջտեղի քառակուսին ու կետը */}
                             <div className={`w-5 h-5 md:w-6 md:h-6 rounded-md flex items-center justify-center shadow-sm ${theme === "dark" ? "bg-white" : "bg-[#6c5fb1]"}`}>
                                 <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${theme === "dark" ? "bg-[#6c5fb1]" : "bg-white"}`}></div>
                             </div>
@@ -39,7 +37,7 @@ export const Header = ({ theme, onThemeChange }: HeaderProps) => {
                         </span>
                     </div>
 
-                    {/* Desktop Nav - theme-ը տալիս ենք որպես պրոպ */}
+                    {/* Desktop Nav*/}
                     <DesktopNav 
                         languages={languages}
                         selectedLang={selectedLang}
@@ -66,7 +64,7 @@ export const Header = ({ theme, onThemeChange }: HeaderProps) => {
                     </div>
                 </div>
 
-                {/* Mobile Dropdown - theme-ը տալիս ենք որպես պրոպ */}
+                {/* Mobile Dropdown*/}
                 <MobileDropdown 
                     isOpen={isMobileMenuOpen} 
                     theme={theme}

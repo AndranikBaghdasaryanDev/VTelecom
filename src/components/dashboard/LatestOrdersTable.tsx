@@ -34,7 +34,6 @@ export const LatestOrdersTable = ({ orders, theme }: LatestOrdersTableProps) => 
                     </thead>
                     <tbody className="text-sm">
                         {orders.map((order: any) => (
-                            // Անպայման theme-ը փոխանցում ենք ներքև
                             <LatestOrders key={order.id} {...order} theme={theme} />
                         ))}
                     </tbody>
