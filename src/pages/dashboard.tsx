@@ -6,7 +6,9 @@ import type { CardProps } from '../types/card';
 import { Axios } from '../api/axios';
 import { LatestOrders } from '../components/LatestOrders';
 import type { LatestOrdersProps } from '../types/latestOrders';
-import { GraphicDiagram } from '../components/graphicDiagram';
+import { GraphicDiagram } from '../components/GraphicDiagram';
+import { Footer } from '../components/Footer';
+
 
 
 export const Dashboard = () => {
@@ -96,6 +98,7 @@ export const Dashboard = () => {
                 </div>
             </div>
             <GraphicDiagram/>
+            <Footer/>
         </div>
     );
 };
