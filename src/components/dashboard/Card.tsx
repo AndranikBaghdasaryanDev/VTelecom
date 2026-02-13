@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import type { CardProps } from '../types/card';
-import { badgeColors } from '../utils/badgeColors';
+import type { CardProps } from '../../types/dashboard/card';
+import { badgeColors } from '../../utils/badgeColors';
 
 export const Card = ({ name, total, percentage = "+11%", description, Icon }: CardProps) => {
 

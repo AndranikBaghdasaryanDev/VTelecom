@@ -1,5 +1,5 @@
-import type { LatestOrdersProps } from "../types/latestOrders"
-import { statusStyles } from "../utils/statusStyles"
+import type { LatestOrdersProps } from "../../types/dashboard/latestOrders"
+import { statusStyles } from "../../utils/statusStyles"
 
 export const LatestOrders = ({ id, userLogo, name, status, price, date }: LatestOrdersProps) => {
     

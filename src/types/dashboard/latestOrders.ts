@@ -6,3 +6,9 @@ export interface LatestOrdersProps{
     price:string
     date:string
 }
+
+
+
+export interface LatestOrdersTableProps {
+    orders: LatestOrdersProps[] | [];
+}
