@@ -1,0 +1,113 @@
+{
+  "languages": [
+    {
+      "name": "English",
+      "code": "gb",
+      "flag": "https://flagcdn.com/w20/gb.png"
+    },
+    {
+      "name": "German",
+      "code": "de",
+      "flag": "https://flagcdn.com/w20/de.png"
+    },
+    {
+      "name": "Italian",
+      "code": "it",
+      "flag": "https://flagcdn.com/w20/it.png"
+    },
+    {
+      "name": "Spanish",
+      "code": "es",
+      "flag": "https://flagcdn.com/w20/es.png"
+    },
+    {
+      "name": "Russian",
+      "code": "ru",
+      "flag": "https://flagcdn.com/w20/ru.png"
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "name": "Orders",
+      "total": "1,587",
+      "percentage": "+11%",
+      "description": "From previous period",
+      "type": "orders"
+    },
+    {
+      "id": 2,
+      "name": "Revenue",
+      "total": "$46,782",
+      "percentage": "-29%",
+      "description": "From previous period",
+      "type": "revenue"
+    },
+    {
+      "id": 3,
+      "name": "Average Price",
+      "total": "$15.9",
+      "percentage": "0%",
+      "description": "From previous period",
+      "type": "price"
+    },
+    {
+      "id": 4,
+      "name": "Product Sold",
+      "total": "1890",
+      "percentage": "+89%",
+      "description": "From previous period",
+      "type": "sold"
+    }
+  ],
+  "latestOrders": [
+    {
+      "id": "#1281",
+      "userLogo": "https://randomuser.me/api/portraits/women/44.jpg",
+      "name": "Riverston Glass Chair",
+      "status": "Delivered",
+      "price": "$185",
+      "date": "5/12/2016"
+    },
+    {
+      "id": "#521300",
+      "userLogo": "https://randomuser.me/api/portraits/women/68.jpg",
+      "name": "Shine Company Catalina",
+      "status": "Delivered",
+      "price": "$1,024",
+      "date": "5/12/2016"
+    },
+    {
+      "id": "#96254137",
+      "userLogo": "https://randomuser.me/api/portraits/men/32.jpg",
+      "name": "Trex Outdoor Furniture Cape",
+      "status": "Cancel",
+      "price": "$657",
+      "date": "5/12/2016"
+    },
+    {
+      "id": "#12365474",
+      "userLogo": "https://randomuser.me/api/portraits/men/46.jpg",
+      "name": "Oasis Bathroom Teak Corner",
+      "status": "Shipped",
+      "price": "$8451",
+      "date": "5/12/2016"
+    },
+    {
+      "id": "#85214796",
+      "userLogo": "https://randomuser.me/api/portraits/men/22.jpg",
+      "name": "BeoPlay Speaker",
+      "status": "Delivered",
+      "price": "$584",
+      "date": "5/12/2016"
+    },
+    {
+      "id": "#12354781",
+      "userLogo": "https://randomuser.me/api/portraits/men/11.jpg",
+      "name": "Riverston Glass Chair",
+      "status": "Delivered",
+      "price": "$185",
+      "date": "5/12/2016"
+    }
+  ]
+}
